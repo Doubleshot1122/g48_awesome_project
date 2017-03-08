@@ -17,23 +17,20 @@ const carousel = (function(document){
 
   //this function is incomplete
   function populateImageArray(){
-    const pictureOne = "./assets/carousel1.jpg"
-    const pictureTwo = "./assets/carousel2.jpg"
-    const pictureThree = "./assets/carousel3.jpg"
+    const pictureOne = new Image()
+    pictureOne.src = "./assets/carousel1.jpg"
+    const pictureTwo = new Image()
+    pictureTwo.src = "./assets/carousel2.jpg"
+    const pictureThree = new Image()
+    pictureThree.src = "./assets/carousel3.jpg"
 
-    //
-    // const pictureOne = document.getElementById('carousel1')
-    // const pictureTwo = document.getElementById('carousel2')
-    // const pictureThree = document.getElementById('carousel3')
-
-    return carousel.imagesArray.concat(pictureOne,pictureTwo,pictureThree)
+    return carousel.imagesArray.push(pictureOne,pictureTwo,pictureThree)
   }
 
   populateImageArray()
   carousel.currentImage = carousel.imagesArray[0]
 
   carousel.switchImageRight = function(){
-    console.log(carousel.imagesArray)
     if(carousel.currentImage === carousel.imagesArray[0]){
       return displayImage(carousel.imagesArray[1])
     }
@@ -60,21 +57,25 @@ const carousel = (function(document){
   function displayImage(picture){
     const imageContainer = document.getElementById("image-container")
     carousel.currentImage = picture
-    console.log('we\'re displaying images!')
-    console.log(picture)
-    return imageContainer.src=`${picture}`
+    imageContainer.append(picture)
+    return imageContainer
+  }
+
+  function removePreviousImage(parent,image){
+    return parent.remove(image)
   }
 
   return carousel
 })(document)
 
 //switches image in carousel every 5 seconds
-window.setInterval(carousel.switchImageRight(),5000)
+window.setInterval(carousel.switchImageRight,5000)
 
 //moves image to right or left
 $(document).ready(function(){
   $('#leftButton').on('click',function(){
-    carousel.switchImageRight()
+    console.log('switched left')
+    carousel.switchImageLeft()
   })
 
   $('#rightButton').on('click',function(){
