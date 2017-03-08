@@ -2,21 +2,12 @@
 
 console.log("main.js is linked")
 
-// As a user, I want to be able to have "promotional images" show to me in a carousel format. If I choose to move forward or back on an image, I should be able to do so as well.
-//
-// __Acceptance Criteria:__
-// * At least three images are rotated at regular intervals on the main page
-// * A forward and back button allows the user to move forward or backwards an image
-// * If you move forward on the last image, it should go the first; if you move backwards on the first image, you should go to the last
-// * If you move forward on an image, the timer should reset (i.e. if the timer is set to rotate every five seconds and a user clicks on the fourth second, the image should change and wait another five seconds)
-
 //defined a scope limited object with methods for manipulating the carousel picture
 const carousel = (function(document){
   const carousel = {}
   const imageContainer = document.getElementById("image-container")
   carousel.imagesArray = []
 
-  //this function is incomplete
   function populateImageArray(){
     const pictureOne = new Image()
     pictureOne.src = "./assets/carousel1.jpg"
@@ -32,27 +23,26 @@ const carousel = (function(document){
   carousel.currentImage = carousel.imagesArray[0]
 
   carousel.switchImageRight = function(){
-    if(carousel.currentImage === carousel.imagesArray[0]){
-      return displayImage(carousel.imagesArray[1])
-    }
-    else if(carousel.currentImage === carousel.imagesArray[1]){
-      return displayImage(carousel.imagesArray[2])
-    }
-    else{
-      return displayImage(carousel.imagesArray[0])
-    }
+    return switchImage('right')
   }
 
   carousel.switchImageLeft = function(){
-    if(carousel.currentImage === carousel.imagesArray[0]){
-      return displayImage(carousel.imagesArray[2])
+    return switchImage('left')
+  }
+
+  //single general switch image function with generalizability to more than three pictures
+  function switchImage(direction){
+    const currentIndex = carousel.imagesArray.indexOf(carousel.currentImage)
+    if(direction === 'left'){
+      if(currentIndex !== 0){
+        return displayImage(carousel.imagesArray[currentIndex - 1])
+      }
+      return displayImage(carousel.imagesArray[carousel.imagesArray.length - 1])
     }
-    else if(carousel.currentImage === carousel.imagesArray[1]){
+      if(currentIndex !== carousel.imagesArray.length - 1){
+        return displayImage(carousel.imagesArray[currentIndex + 1])
+      }
       return displayImage(carousel.imagesArray[0])
-    }
-    else{
-      return displayImage(carousel.imagesArray[1])
-    }
   }
 
   function displayImage(picture){
@@ -74,14 +64,6 @@ const carousel = (function(document){
 //switches image in carousel every 2.5 seconds
 window.setInterval(carousel.switchImageRight,2500)
 
-//moves image to right or left
-$(document).ready(function(){
-  $('#leftButton').on('click',function(){
-    console.log('switched left')
-    carousel.switchImageLeft()
-  })
-
-  $('#rightButton').on('click',function(){
-    carousel.switchImageLeft()
-  })
-})
+//Provides button click functionality for the page
+document.getElementById('leftButton').addEventListener('click',carousel.switchImageLeft)
+document.getElementById('rightButton').addEventListener('click',carousel.switchImageRight)
