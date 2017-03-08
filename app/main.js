@@ -13,6 +13,7 @@ console.log("main.js is linked")
 //defined a scope limited object with methods for manipulating the carousel picture
 const carousel = (function(document){
   const carousel = {}
+  const imageContainer = document.getElementById("image-container")
   carousel.imagesArray = []
 
   //this function is incomplete
@@ -55,21 +56,23 @@ const carousel = (function(document){
   }
 
   function displayImage(picture){
-    const imageContainer = document.getElementById("image-container")
+    removePreviousImage(imageContainer,carousel.currentImage)
+
     carousel.currentImage = picture
     imageContainer.append(picture)
     return imageContainer
   }
 
+  //this isnt working
   function removePreviousImage(parent,image){
-    return parent.remove(image)
+    parent.innerHTML = ""
   }
 
   return carousel
 })(document)
 
-//switches image in carousel every 5 seconds
-window.setInterval(carousel.switchImageRight,5000)
+//switches image in carousel every 2.5 seconds
+window.setInterval(carousel.switchImageRight,2500)
 
 //moves image to right or left
 $(document).ready(function(){
