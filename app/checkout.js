@@ -40,12 +40,28 @@ var style = {
 };
 
 const checkbox = document.getElementById('checkbox')
-
 checkbox.addEventListener('click',function(){
 
+alert('Copy it over. What are you waiting for?')
 
-
-  alert('Copy it over. What are you waiting for?')
+  var $billName = $('#inputFirstNameS').val()
+  $('#inputFirstNameB').val($billName)
+  var $billLast = $('#inputLastNameS').val()
+  $('#inputLastNameB').val($billLast)
+  var $billWork = $('#inputCompanyS').val()
+  $('#inputCompanyB').val($billWork)
+  var $billAddr1 = $('#inputAddress1S').val()
+  $('#inputAddress1B').val($billAddr1)
+  var $billAddr2 = $('#inputAddress2S2').val()
+  $('#inputAddress2B2').val($billAddr2)
+  var $billCity = $('#inputCityS').val()
+  $('#inputCityB').val($billCity)
+  var $billState = $('#inputStateS').val()
+  $('#inputStateB').val($billState)
+  var $billZip5 = $('#inputZipS').val()
+  $('#inputZipB').val($billZip5)
+  var $billZip4 = $('#inputZipS2').val()
+  $('#inputZipB2').val($billZip4)
 })
 
 // Create an instance of the card Element
