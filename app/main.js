@@ -68,3 +68,10 @@ window.setInterval(carousel.switchImageRight,2500)
 //Provides button click functionality for the page
 document.getElementById('leftButton').addEventListener('click',carousel.switchImageLeft)
 document.getElementById('rightButton').addEventListener('click',carousel.switchImageRight)
+
+
+//Alert for newsletter signup
+
+$('.form-horizontal').on('submit', function () {
+  alert("Thanks! You'll now receive all our favorite spam!")
+})

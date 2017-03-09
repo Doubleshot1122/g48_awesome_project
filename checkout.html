@@ -18,6 +18,8 @@
 
   <script defer src="./app/checkout.js"></script>
 
+  <link rel="stylesheet" href="assets/checkout.css">
+
 
 </head>
 
@@ -35,7 +37,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-            <h4><a href="index.html">F e a r    FACTORY</a></h4>
+          <h4><a href="index.html">F e a r    FACTORY</a></h4>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -59,7 +61,7 @@
   <main class="container">
 
     <div class="row">
-      <br> <br> <br> <br> <br> <br> <br>
+      <br>
     </div>
 
     <div class="row">
@@ -115,142 +117,147 @@
                         <label for="card-element">
                           Credit or debit card
                         </label>
-                        <div id="card-element">
+                        <div id="card-element" class="ccarea">
                           <!-- a Stripe Element will be inserted here. -->
                         </div>
                         <!-- Used to display form errors -->
                         <div id="card-errors"></div>
                       </div>
-
-
                     </div>
                   </div>
 
-                  <div class="row"> <br>  </div>
-                  <div class="row"> <br> </div>
+                <div class="row"> <br>  </div>
+                <div class="row"> <br> </div>
+
                   <div class="row">
-                    <div class="col-md-6">
+                    <div id="shipping-form" class="shippingForm col-md-6">
                       <h3>Shipping Bitch!</h3>
                       <div class="row">
                         <label for="inputFirstName" class="col-sm-3 control-label">First Name</label>
-                        <input type="text" class="first-name col-sm-7" id="inputFirstName" placeholder="First Name" required>
+                        <input type="text" class="childS first-name col-sm-7" id="inputFirstNameS" placeholder="First Name" required>
                       </div>
                       <div class="row">
                         <label for="inputLastName" class="col-sm-3 control-label">Last Name</label>
-                        <input type="text" class="last-name col-sm-7" id="inputLastName" placeholder="Last Name" required>
+                        <input type="text" class="childS last-name col-sm-7" id="inputLastNameS" placeholder="Last Name" required>
                       </div>
                       <div class="row">
                         <label for="inputCompany" class="col-sm-3 control-label">You Work?</label>
-                        <input type="text" class="company col-sm-7" id="inputCompany" placeholder="Busizness" required>
+                        <input type="text" class="childS company col-sm-7" id="inputCompanyS" placeholder="Busizness" required>
                       </div>
                       <div class="row">
                         <label for="inputAddress1" class="col-sm-3 control-label">You Live?</label>
-                        <input type="text" class="address1 col-sm-7" id="inputAddress1" placeholder="I See You" required>
+                        <input type="text" class="childS address1 col-sm-7" id="inputAddress1S" placeholder="I See You" required>
                       </div>
                       <div class="row">
                         <label for="inputAddress2" class="col-sm-3 control-label"></label>
-                        <input type="text" class="address2 col-sm-7" id="inputAddress2" placeholder="Address Yo'">
+                        <input type="text" class="childS address2 col-sm-7" id="inputAddress2S2" placeholder="Address Yo'">
                       </div>
                       <div class="row">
                         <label for="inputCity" class="col-sm-3 control-label">Cit-aaaa</label>
-                        <input type="text" class="city col-sm-7" id="inputCity" placeholder="City" required>
+                        <input type="text" class="childS city col-sm-7" id="inputCityS" placeholder="City" required>
                       </div>
                       <div class="row">
                         <label for="inputState" class="col-sm-3 control-label">Staaaeeeete</label>
-                        <input type="text" class="state col-sm-3" id="inputState" placeholder="Duh" required>
+                        <input type="text" class="childS state col-sm-3" id="inputStateS" placeholder="Duh" required>
                       </div>
                       <div class="row">
                         <label for="inputZip" class="col-sm-3 control-label">Zip Your Lip</label>
-                        <input type="number" class="zip col-sm-4" id="inputZip" placeholder="X X X X X">
-                        <input type="number" class="zip col-sm-3" id="inputZip" placeholder="X X X X">
+                        <input type="number" class="childS zip col-sm-4" id="inputZipS" placeholder="X X X X X">
+                        <input type="number" class="childS zip col-sm-3" id="inputZipS2" placeholder="X X X X">
                       </div>
                       <div class="checkbox">
                         <label><input id="checkbox" type="checkbox"> Copy my deets to billing</label>
                       </div>
                       <div class="row"></div>
                     </div>
-                    <div class="col-md-6">
+                    <div id="billing-form" class="col-md-6">
                       <div class="row">
                         <h3>Billing Bitch!</h3>
                         <div class="row">
                           <label for="inputFirstName" class="col-sm-3 control-label">First Name</label>
-                          <input type="text" class="first-name col-sm-7" id="inputFirstName" placeholder="First Name">
+                          <input type="text" class="childB first-name col-sm-7" id="inputFirstNameB" placeholder="First Name">
                         </div>
                         <div class="row">
                           <label for="inputLastName" class="col-sm-3 control-label">Last Name</label>
-                          <input type="text" class="last-name col-sm-7" id="inputLastName" placeholder="Last Name">
+                          <input type="text" class="childB last-name col-sm-7" id="inputLastNameB" placeholder="Last Name">
                         </div>
                         <div class="row">
                           <label for="inputCompany" class="col-sm-3 control-label">You Work?</label>
-                          <input type="text" class="company col-sm-7" id="inputCompany" placeholder="Busizness">
+                          <input type="text" class="childB company col-sm-7" id="inputCompanyB" placeholder="Busizness">
                         </div>
                         <div class="row">
                           <label for="inputAddress1" class="col-sm-3 control-label">You Live?</label>
-                          <input type="text" class="address1 col-sm-7" id="inputAddress1" placeholder="I See You">
+                          <input type="text" class="childB address1 col-sm-7" id="inputAddress1B" placeholder="I See You">
                         </div>
                         <div class="row">
                           <label for="inputAddress2" class="col-sm-3 control-label"></label>
-                          <input type="text" class="address2 col-sm-7" id="inputAddress2" placeholder="Address Yo'">
+                          <input type="text" class="childB address2 col-sm-7" id="inputAddress2B2" placeholder="Address Yo'">
                         </div>
                         <div class="row">
                           <label for="inputCity" class="col-sm-3 control-label">Cit-aaaa</label>
-                          <input type="text" class="city col-sm-7" id="inputCity" placeholder="City">
+                          <input type="text" class="childB city col-sm-7" id="inputCityB" placeholder="City">
                         </div>
                         <div class="row">
                           <label for="inputState" class="col-sm-3 control-label">Staaaeeeete</label>
-                          <input type="text" class="state col-sm-3" id="inputState" placeholder="Duh">
+                          <input type="text" class="childB state col-sm-3" id="inputStateB" placeholder="Duh">
                         </div>
                         <div class="row">
                           <label for="inputZip" class="col-sm-3 control-label">Zip Your Lip</label>
-                          <input type="zip" class="zip col-sm-3" id="inputZip" placeholder="Zippeee">
+                          <input type="zip" class="childB zip col-sm-4" id="inputZipB" placeholder="X X X X X">
+                          <input type="zip" class="childB zip col-sm-3" id="inputZipB2" placeholder="X X X X ">
                         </div>
                         <div class="row"></div>
                       </div>
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
                   </form>
+                  <div class="row"> <br> </div>
+                  <div class="row"> <br> </div>
+                  <div class="row"> <br> </div>
+                  <div class="row"> <br> </div>
+                  <div class="row"> <br> </div>
 
                 </main>
                 <footer>
-                    <nav class="navbar navbar-default">
-                      <div class="row"> <br> <br></div>
-                      <div class="container">
-                        <div class="col-md-2">
-                          <h4 class="text-center">Fearmongers</h4>
-                          <h5 class="text-center"><a href="http://www.foxnews.com/">Fox News</a></h5>
-                          <h5 class="text-center"><a href="http://www.cnn.com/">CNN</a></h5>
-                          <h5 class="text-center"><a href="https://weather.com/">The Weather Channel</a></h5>
-                        </div>
-                        <div class="col-md-2 col-md-offset-1">
-                          <h4 class="text-center">Discount Fears</h4>
-                          <div class="row">
-                            <div class= "col-md-offset-1">
-                              <h6><img src="assets/small skull.png" alt="">  Spiders $10.00  </h6>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-md-offset-1">
-                              <h6><img src="assets/small skull.png" alt="">  Babies $15.00</h6>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-md-offset-1">
-                              <h6><img src="assets/small skull.png" alt="">  Rabid Dogs $2.00</h6>
-                            </div>
+                  <nav class="navbar navbar-default">
+                    <div class="row"> <br> <br></div>
+                    <div class="container">
+                      <div class="col-md-2">
+                        <h4 class="text-center">Fearmongers</h4>
+                        <h5 class="text-center"><a href="http://www.foxnews.com/">Fox News</a></h5>
+                        <h5 class="text-center"><a href="http://www.cnn.com/">CNN</a></h5>
+                        <h5 class="text-center"><a href="https://weather.com/">The Weather Channel</a></h5>
+                      </div>
+                      <div class="col-md-2 col-md-offset-1">
+                        <h4 class="text-center">Discount Fears</h4>
+                        <div class="row">
+                          <div class= "col-md-offset-1">
+                            <h6><img src="assets/small skull.png" alt="">  Spiders $10.00  </h6>
                           </div>
                         </div>
-                        <div class="col-md-2 col-md-offset-1">
-                          <h4 class="text-center">About Us</h4>
-                          <h5 class="text-center"><a href="#">Our Mission</a></h5>
-                          <h5 class="text-center"><a href="#">What Scares Us</a></h5>
-                          <h5 class="text-center"><a href="#">Friendship</a></h5>
+                        <div class="row">
+                          <div class="col-md-offset-1">
+                            <h6><img src="assets/small skull.png" alt="">  Babies $15.00</h6>
+                          </div>
                         </div>
-                        <div class="row col-md-3 col-md-offset-1">
-                          <h4 class="text-center">Visit Hell</h4>
-                          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6268.398553663267!2d-83.99013142830538!3d42.43511324051357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882334578757ad71%3A0xd45079770956618a!2sHell%2C+MI+48169!5e0!3m2!1sen!2sus!4v1489002017085" width="250" height="150" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        <div class="row">
+                          <div class="col-md-offset-1">
+                            <h6><img src="assets/small skull.png" alt="">  Rabid Dogs $2.00</h6>
+                          </div>
                         </div>
                       </div>
-                    </nav>
-                  </footer>
+                      <div class="col-md-2 col-md-offset-1">
+                        <h4 class="text-center">About Us</h4>
+                        <h5 class="text-center"><a href="#">Our Mission</a></h5>
+                        <h5 class="text-center"><a href="#">What Scares Us</a></h5>
+                        <h5 class="text-center"><a href="#">Friendship</a></h5>
+                      </div>
+                      <div class="row col-md-3 col-md-offset-1">
+                        <h4 class="text-center">Visit Hell</h4>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6268.398553663267!2d-83.99013142830538!3d42.43511324051357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882334578757ad71%3A0xd45079770956618a!2sHell%2C+MI+48169!5e0!3m2!1sen!2sus!4v1489002017085" width="250" height="150" frameborder="0" style="border:0" allowfullscreen></iframe>
+                      </div>
+                    </div>
+                  </nav>
+                </footer>
               </body>
               </html>
