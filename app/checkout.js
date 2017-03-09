@@ -39,6 +39,12 @@ var style = {
   }
 };
 
+const checkbox = document.getElementById('checkbox')
+
+checkbox.addEventListener('click',function(){
+  alert('Copy it over. What are you waiting for?')
+})
+
 // Create an instance of the card Element
 var card = elements.create('card', {style: style});
 console.log(card)
