@@ -133,3 +133,32 @@ $.ajax({
   }).catch(function (error) {
     console.log('Error:', error)
   });
+
+$('#everythingSort').on('click',function (e) {
+  $("#productsList").children().show();
+});
+
+$('#itemSort').on('click',function (e) {
+  $("#productsList").children().hide();
+  $('.item').show();
+});
+
+$('#feelingSort').on('click',function (e) {
+  $("#productsList").children().hide();
+  $('.feeling').show();
+});
+
+$('#physicalSort').on('click',function (e) {
+  $("#productsList").children().hide();
+  $('.physical').show();
+});
+
+$('#peopleSort').on('click',function (e) {
+  $("#productsList").children().hide();
+  $('.people').show();
+});
+
+$('#creatureSort').on('click',function (e) {
+  $("#productsList").children().hide();
+  $('.creature').show();
+});
