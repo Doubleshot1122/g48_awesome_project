@@ -22,8 +22,13 @@ $('form').on('submit', function(e) {
   e.preventDefault()
   console.log('form submitted!')
 
+
+})
+
+
   $.ajax({
     url: 'https://api.stripe.com',
+    key: 'sk_test_21BLPON4GxYnUHFQUx3SGh6J',
     method: 'GET'
   }).then(function(result){
     window.alert('Credit Card Accepted!')
@@ -32,8 +37,6 @@ $('form').on('submit', function(e) {
     console.error("ERROR:",error)
     window.alert(error)
   })
-
-})
 
 
 // $('first-name').focus()
