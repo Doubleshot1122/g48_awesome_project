@@ -19,3 +19,7 @@
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
 }
+
+#ccarea {
+  background-color: red !important;
+}
