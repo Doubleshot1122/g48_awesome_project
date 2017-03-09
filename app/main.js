@@ -6,7 +6,9 @@ console.log("main.js is linked")
 const carousel = (function(document){
   const carousel = {}
   const imageContainer = document.getElementById("image-container")
-  carousel.imagesArray = []
+  const imagesArray = []
+  let currentImage = imagesArray[0]
+
 
   function populateImageArray(){
     const pictureOne = new Image()
@@ -16,11 +18,10 @@ const carousel = (function(document){
     const pictureThree = new Image()
     pictureThree.src = "./assets/carousel3.jpg"
 
-    return carousel.imagesArray.push(pictureOne,pictureTwo,pictureThree)
+    return imagesArray.push(pictureOne,pictureTwo,pictureThree)
   }
 
   populateImageArray()
-  carousel.currentImage = carousel.imagesArray[0]
 
   carousel.switchImageRight = function(){
     return switchImage('right')
@@ -32,23 +33,23 @@ const carousel = (function(document){
 
   //single general switch image function with generalizability to more than three pictures
   function switchImage(direction){
-    const currentIndex = carousel.imagesArray.indexOf(carousel.currentImage)
+    const currentIndex = imagesArray.indexOf(currentImage)
     if(direction === 'left'){
       if(currentIndex !== 0){
-        return displayImage(carousel.imagesArray[currentIndex - 1])
+        return displayImage(imagesArray[currentIndex - 1])
       }
-      return displayImage(carousel.imagesArray[carousel.imagesArray.length - 1])
+      return displayImage(imagesArray[imagesArray.length - 1])
     }
-      if(currentIndex !== carousel.imagesArray.length - 1){
-        return displayImage(carousel.imagesArray[currentIndex + 1])
+      if(currentIndex !== imagesArray.length - 1){
+        return displayImage(imagesArray[currentIndex + 1])
       }
-      return displayImage(carousel.imagesArray[0])
+      return displayImage(imagesArray[0])
   }
 
   function displayImage(picture){
-    removePreviousImage(imageContainer,carousel.currentImage)
+    removePreviousImage(imageContainer,currentImage)
 
-    carousel.currentImage = picture
+    currentImage = picture
     imageContainer.append(picture)
     return imageContainer
   }
