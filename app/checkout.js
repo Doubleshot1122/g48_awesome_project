@@ -42,6 +42,9 @@ var style = {
 const checkbox = document.getElementById('checkbox')
 
 checkbox.addEventListener('click',function(){
+
+
+
   alert('Copy it over. What are you waiting for?')
 })
 
