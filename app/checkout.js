@@ -2,10 +2,6 @@
 
 console.log("checkout.js is linked")
 
-// As a user, I should be able to enter a credit card number and relevant information, have the card validated, and be able to "purchase" the products.
-//
-// _Note: Basic validation should happen as the user enters information into the fields. Additional validation should come from [stripe.js](https://stripe.com/docs/stripe.js)._
-//
 // __Acceptance Criteria:__
 // * A clearly labeled credit card form with the following fields:
 //   * credit card number (required, validates for at least 16 numbers)
@@ -17,63 +13,62 @@ console.log("checkout.js is linked")
 //   * If Stripe returns a success response, clears all fields and shows some sort of success message.
 //   * If Stripe returns an error response, the error is displayed on the page
 
+// Create a Stripe client
+var stripe = Stripe('pk_test_GypWDFrpgR7n5LaZiv1IFHUE');
 
-$('form').on('submit', function(e) {
-  e.preventDefault()
-  console.log('form submitted!')
+// Create an instance of Elements
+var elements = stripe.elements();
 
-  $.ajax({
-    url: 'https://api.stripe.com',
-    method: 'GET'
-  }).then(function(result){
-    window.alert('Credit Card Accepted!')
+// Custom styling can be passed to options when creating an Element.
+// (Note that this demo uses a wider set of styles than the guide below.)
+var style = {
+  base: {
+    'background-color': 'white',
+    color: '#32325d',
+    lineHeight: '24px',
+    fontFamily: 'Helvetica Neue',
+    fontSmoothing: 'antialiased',
+    fontSize: '16px',
+    '::placeholder': {
+      color: '#aab7c4'
+    }
+  },
+  invalid: {
+    color: '#fa755a',
+    iconColor: '#fa755a'
+  }
+};
 
-  }).catch(function(error){
-    console.error("ERROR:",error)
-    window.alert(error)
-  })
+// Create an instance of the card Element
+var card = elements.create('card', {style: style});
+console.log(card)
 
-})
+// Add an instance of the card Element into the `card-element` <div>
+card.mount('#card-element');
 
+// Handle real-time validation errors from the card Element.
+card.addEventListener('change', function(event) {
+  const displayError = document.getElementById('card-errors');
+  if (event.error) {
+    displayError.textContent = event.error.message;
+  } else {
+    displayError.textContent = '';
+  }
+});
 
-// $('first-name').focus()
-//
-// $('form').on('submit', function(e) {
-//     e.preventDefault()
-//     console.log('its alive!')
-//
-//     $.ajax({
-//         url: 'https://galvanize-student-apis.herokuapp.com/gpersonnel/roles',
-//         method: 'GET'
-//     }).then(function(result) {
-//         let i = -1
-//         let selected = $('#roles')
-//         // let selected = document.getElementById("#roles")
-//         // let selectedType = selected.options[selected.selectedIndex].value
-//
-//         const sortedRoles = []
-//         console.log(selected.innerHTML,result)
-//
-//         while (i++ < result.length) {
-//             const roleType = result[i].title
-//             $('#roles').append(`<option value="${roleType}">${roleType}</option>`)
-//         }
-//
-//         selected.on('change',function(){
-//           addPictures(result,)
-//         })
-//         addPictures(result,result.indexOf(selected.innerHTML))
-//
-//         // console.log(sortedRoles)
-//         // return appendRoles(sortedRoles)
-//
-//     }).catch(function(error) {
-//         console.error('Error:', error)
-//     })
-//
-//     function addPictures(data,i){
-//       return document.getElementsByClassName("role-preview")[0].src=`${data[i].img}`
-//       // $(".role-preview").attr('src',`${data[i].img}`);
-//       // $('.role-preview')
-//     }
-// })
+// Handle form submission
+var form = document.getElementById('payment-form');
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  stripe.createToken(card).then(function(result) {
+    if (result.error) {
+      // Inform the user if there was an error
+      var errorElement = document.getElementById('card-errors');
+      errorElement.textContent = result.error.message;
+    } else {
+      // Send the token to your server
+      stripeTokenHandler(result.token);
+    }
+  });
+});
