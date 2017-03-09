@@ -140,7 +140,7 @@ function more10() {
 };
 
 $.ajax({
-    url: 'http://galvanize-student-apis.herokuapp.com/gcommerce/products',
+    url: 'https://galvanize-student-apis.herokuapp.com/gcommerce/products',
     method: 'GET'
 }).then(function(result) {
     $.each(result, function(i, result) {
