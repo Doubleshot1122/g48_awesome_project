@@ -62,13 +62,24 @@ const carousel = (function(document){
   return carousel
 })(document)
 
-//switches image in carousel every 2.5 seconds
-window.setInterval(carousel.switchImageRight,2500)
 
-//Provides button click functionality for the page
-document.getElementById('leftButton').addEventListener('click',carousel.switchImageLeft)
-document.getElementById('rightButton').addEventListener('click',carousel.switchImageRight)
 
+//switches image in carousel every specified number of miliseconds
+const controlFlow = (function(document,milliseconds){
+  const timer = window.setInterval(carousel.switchImageRight,milliseconds)
+  const switchLeft = document.getElementById('leftButton').addEventListener('click',carousel.switchImageLeft)
+  const switchRight = document.getElementById('rightButton').addEventListener('click',carousel.switchImageRight)
+
+  if(switchLeft){
+    switchLeft
+    window.clearInterval(timer)
+  }
+  else if(switchRight){
+    switchRight
+    window.clearInterval(timer)
+  }
+  timer
+})(document,2500)
 
 //Alert for newsletter signup
 
