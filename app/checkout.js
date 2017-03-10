@@ -23,7 +23,6 @@ var elements = stripe.elements();
 // (Note that this demo uses a wider set of styles than the guide below.)
 var style = {
   base: {
-    'background-color': 'white',
     color: '#32325d',
     lineHeight: '24px',
     fontFamily: 'Helvetica Neue',
@@ -66,7 +65,7 @@ alert('Copy it over. What are you waiting for?')
 
 // Create an instance of the card Element
 var card = elements.create('card', {style: style});
-console.log(card)
+
 
 // Add an instance of the card Element into the `card-element` <div>
 card.mount('#card-element');
