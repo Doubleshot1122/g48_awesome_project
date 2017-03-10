@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>FEAR</title>
+  <title>F E A R  Factory</title>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -70,15 +70,15 @@
           <thead>
             <tr>
               <th>
-                <h5>Fear ID</h5></th>
+                <h5 class="text-warning">Fear ID</h5></th>
                 <th>
-                  <h5>Fear Quantity</h5></th>
+                  <h5 class="text-warning">Fear Quantity</h5></th>
                   <th>
-                    <h5>Fear Price</h5></th>
+                    <h5 class="text-warning">Fear Price</h5></th>
                     <th>
-                      <h5>Fear Type</h5></th>
+                      <h5 class="text-warning">Fear Type</h5></th>
                       <th>
-                        <h5>Total</h></th>
+                        <h5 class="text-warning">Total</h></th>
                         </tr>
                       </head>
                       <tbody>
@@ -111,11 +111,11 @@
                 <form action="/charge" method="post" id="payment-form">
                   <div class="row">
                     <div class="col-sm-5">
-                      <h3>Give Me My Money!</h3>
+                      <h3 class="text-primary">Give Me My Money!</h3>
 
                       <div id="ccarea" class="form-row">
                         <label for="card-element">
-                          Credit or debit card
+                          <h5>Credit or debit card</h5>
                         </label>
                         <div id="card-element" class="ccarea">
                           <!-- a Stripe Element will be inserted here. -->
@@ -126,90 +126,95 @@
                     </div>
                   </div>
 
-                <div class="row"> <br>  </div>
-                <div class="row"> <br> </div>
+                  <div class="row"> <br>  </div>
+                  <div class="row"> <br> </div>
 
-                  <div class="row">
-                    <div id="shipping-form" class="shippingForm col-md-6">
-                      <h3>Shipping Bitch!</h3>
+                  <div class="row container">
+                    <div id="shipping-form" class="shippingForm col-md-5">
+                      <h3 class="text-primary">Get</h3>
                       <div class="row">
-                        <label for="inputFirstName" class="col-sm-3 control-label">First Name</label>
-                        <input type="text" class="childS first-name col-sm-7" id="inputFirstNameS" placeholder="First Name" required>
+                        <input type="text" class="childS first-name form-control text-danger" id="inputFirstNameS" placeholder="First Name" required>
                       </div>
                       <div class="row">
-                        <label for="inputLastName" class="col-sm-3 control-label">Last Name</label>
-                        <input type="text" class="childS last-name col-sm-7" id="inputLastNameS" placeholder="Last Name" required>
+                        <div class="row"> <br></div>
+                        <input type="text" class="childS last-name form-control" id="inputLastNameS" placeholder="Last Name" required>
                       </div>
                       <div class="row">
-                        <label for="inputCompany" class="col-sm-3 control-label">You Work?</label>
-                        <input type="text" class="childS company col-sm-7" id="inputCompanyS" placeholder="Busizness" required>
+                        <div class="row"> <br></div>
+                        <input type="text" class="childS company form-control" id="inputCompanyS" placeholder="Place of Business" required>
                       </div>
                       <div class="row">
-                        <label for="inputAddress1" class="col-sm-3 control-label">You Live?</label>
-                        <input type="text" class="childS address1 col-sm-7" id="inputAddress1S" placeholder="I See You" required>
+                        <div class="row"> <br></div>
+                        <input type="text" class="childS address1 form-control" id="inputAddress1S" placeholder="Address" required>
                       </div>
                       <div class="row">
-                        <label for="inputAddress2" class="col-sm-3 control-label"></label>
-                        <input type="text" class="childS address2 col-sm-7" id="inputAddress2S2" placeholder="Address Yo'">
+                        <div class="row"> <br></div>
+                        <input type="text" class="childS address2 form-control" id="inputAddress2S2" placeholder="Address">
                       </div>
                       <div class="row">
-                        <label for="inputCity" class="col-sm-3 control-label">Cit-aaaa</label>
-                        <input type="text" class="childS city col-sm-7" id="inputCityS" placeholder="City" required>
+                        <div class="row"> <br></div>
+                        <input type="text" class="childS city form-control" id="inputCityS" placeholder="City" required>
                       </div>
                       <div class="row">
-                        <label for="inputState" class="col-sm-3 control-label">Staaaeeeete</label>
-                        <input type="text" class="childS state col-sm-3" id="inputStateS" placeholder="Duh" required>
+                        <div class="row"> <br></div>
+                        <input type="text" class="childS state form-control" id="inputStateS" placeholder="State" required>
                       </div>
                       <div class="row">
-                        <label for="inputZip" class="col-sm-3 control-label">Zip Your Lip</label>
-                        <input type="number" class="childS zip col-sm-4" id="inputZipS" placeholder="X X X X X">
-                        <input type="number" class="childS zip col-sm-3" id="inputZipS2" placeholder="X X X X">
+                        <div class="row"> <br></div>
+                        <input type="number" class="childS zip form-control" id="inputZipS" placeholder="Zip - X X X X X">
+                        <input type="number" class="childS zip form-control" id="inputZipS2" placeholder="Zip - X X X X">
                       </div>
+
                       <div class="checkbox">
                         <label><input id="checkbox" type="checkbox"> Copy my deets to billing</label>
                       </div>
                       <div class="row"></div>
                     </div>
-                    <div id="billing-form" class="col-md-6">
+
+
+                    <div id="billing-form" class="col-md-5 col-md-offset-2">
                       <div class="row">
-                        <h3>Billing Bitch!</h3>
+                        <h3 class="text-primary">Send Bill</h3>
                         <div class="row">
-                          <label for="inputFirstName" class="col-sm-3 control-label">First Name</label>
-                          <input type="text" class="childB first-name col-sm-7" id="inputFirstNameB" placeholder="First Name">
+                          <input type="text" class="childB first-name form-control" id="inputFirstNameB" placeholder="First Name">
                         </div>
                         <div class="row">
-                          <label for="inputLastName" class="col-sm-3 control-label">Last Name</label>
-                          <input type="text" class="childB last-name col-sm-7" id="inputLastNameB" placeholder="Last Name">
+                          <div class="row"> <br></div>
+                          <input type="text" class="childB last-name form-control" id="inputLastNameB" placeholder="Last Name">
                         </div>
                         <div class="row">
-                          <label for="inputCompany" class="col-sm-3 control-label">You Work?</label>
-                          <input type="text" class="childB company col-sm-7" id="inputCompanyB" placeholder="Busizness">
+                          <div class="row"> <br></div>
+                          <input type="text" class="childB company form-control" id="inputCompanyB" placeholder="Place of Business">
                         </div>
                         <div class="row">
-                          <label for="inputAddress1" class="col-sm-3 control-label">You Live?</label>
-                          <input type="text" class="childB address1 col-sm-7" id="inputAddress1B" placeholder="I See You">
+                          <div class="row"> <br></div>
+                          <input type="text" class="childB address1 form-control" id="inputAddress1B" placeholder="Address">
                         </div>
                         <div class="row">
-                          <label for="inputAddress2" class="col-sm-3 control-label"></label>
-                          <input type="text" class="childB address2 col-sm-7" id="inputAddress2B2" placeholder="Address Yo'">
+                          <div class="row"> <br></div>
+                          <input type="text" class="childB address2 form-control" id="inputAddress2B2" placeholder="Address">
                         </div>
                         <div class="row">
-                          <label for="inputCity" class="col-sm-3 control-label">Cit-aaaa</label>
-                          <input type="text" class="childB city col-sm-7" id="inputCityB" placeholder="City">
+                          <div class="row"> <br></div>
+                          <input type="text" class="childB city form-control" id="inputCityB" placeholder="City">
                         </div>
                         <div class="row">
-                          <label for="inputState" class="col-sm-3 control-label">Staaaeeeete</label>
-                          <input type="text" class="childB state col-sm-3" id="inputStateB" placeholder="Duh">
+                          <div class="row"> <br></div>
+                          <input type="text" class="childB state form-control" id="inputStateB" placeholder="State">
                         </div>
                         <div class="row">
-                          <label for="inputZip" class="col-sm-3 control-label">Zip Your Lip</label>
-                          <input type="zip" class="childB zip col-sm-4" id="inputZipB" placeholder="X X X X X">
-                          <input type="zip" class="childB zip col-sm-3" id="inputZipB2" placeholder="X X X X ">
+                          <div class="row"> <br></div>
+                          <input type="zip" class="childB zip form-control" id="inputZipB" placeholder="Zip - X X X X X">
+                          <input type="zip" class="childB zip form-control" id="inputZipB2" placeholder="Zip - X X X X ">
                         </div>
                         <div class="row"></div>
                       </div>
                     </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
+
+                    <div class="row"></div>
+                    <div class="row col-md-1 col-md-offset-11">
+                      <button type="submit" class="btn btn-info btn-lg active">Submit</button>
+                    </div>
                   </form>
                   <div class="row"> <br> </div>
                   <div class="row"> <br> </div>
@@ -229,7 +234,7 @@
                         <h5 class="text-center"><a href="https://weather.com/">The Weather Channel</a></h5>
                       </div>
                       <div class="col-md-2 col-md-offset-1">
-                        <h4 class="text-center">Discount Fears</h4>
+                        <h4 class="text-center text-info">Discount Fears</h4>
                         <div class="row">
                           <div class= "col-md-offset-1">
                             <h6><img src="assets/small skull.png" alt="">  Spiders $10.00  </h6>

@@ -40,10 +40,10 @@ const carousel = (function(document){
       }
       return displayImage(imagesArray[imagesArray.length - 1])
     }
-      if(currentIndex !== imagesArray.length - 1){
-        return displayImage(imagesArray[currentIndex + 1])
-      }
-      return displayImage(imagesArray[0])
+    if(currentIndex !== imagesArray.length - 1){
+      return displayImage(imagesArray[currentIndex + 1])
+    }
+    return displayImage(imagesArray[0])
   }
 
   function displayImage(picture){
@@ -75,3 +75,9 @@ document.getElementById('rightButton').addEventListener('click',carousel.switchI
 $('.form-horizontal').on('submit', function () {
   alert("Thanks! You'll now receive all our favorite spam!")
 })
+
+// Add item to cart on image hover
+
+$('.products-home').hover(function () {
+  $(this).find('#overlay').fadeToggle(200);
+});
